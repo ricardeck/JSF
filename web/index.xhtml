@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            <h:panelGrid columns="2" cellpadding="5">
+              
+                <h:outputText value="User: " />
+                <p:inputText id="usuario" value="#{loginBean.usuario.login}"/>
+
+                <h:outputText value="Password" />
+                <p:password id="inlineFeedback" value="#{loginBean.usuario.senha}" feedback="true" inline="true" />
+            </h:panelGrid>
+            <p:commandButton value="Empresa" id="loginPJ" update="growl" action="#{loginBean.logarPJ(ev)}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+            <p:commandButton actionListener="#{loginBean.logarPF(ev)}" update="growl" value="Cliente" style="margin-right:20px;" styleClass="ui-priority-primary" />
+        </h:form>
+        <h:form>
+            <p:growl id="grow2" showDetail="true" sticky="true" /> 
+            <h:panelGrid columns="2" cellpadding="5">
+              
+                <h:outputText value="Nome " />
+                <p:inputText id="usuario" value="#{loginBean.usuario.nome}"/>
+
+                <h:outputText value="Peso" />
+                <p:inputText id="pes" value="#{loginBean.usuario.peso}"/>
+                
+                <h:outputText value="Altura" />
+                <p:inputText id="alt" value="#{loginBean.usuario.altura}"/>
+            </h:panelGrid>
+            <p:commandButton value="IMC" id="loginPJ" update="grow2" action="#{loginBean.getIMC(ev)}" style="margin-right:20px;" styleClass="ui-priority-primary" />
+        </h:form>
+    </h:body>
+</html>
+
